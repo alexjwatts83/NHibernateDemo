@@ -8,9 +8,9 @@ namespace NHibernateDemo.Infrastructure
 {
     public static class FluentNHibernateHelper
     {
-        public static ISession OpenSession()
+        public static ISession OpenSession(string connectionString)
         {
-            string connectionString = "Write your database connection string here";
+            //string connectionString = "Write your database connection string here";
 
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql7.ConnectionString(connectionString).ShowSql())

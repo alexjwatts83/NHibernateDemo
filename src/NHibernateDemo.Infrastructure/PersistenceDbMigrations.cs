@@ -22,24 +22,12 @@ namespace NHibernateDemo.Infrastructure
 
         public static void UpdateDatabase(string connectionString, ILogger logger)
         {
-            //try
-            //{
-            //    const string filter = "EvolveDb.Infrastructure.Persistence.Migrations";
-            //    var con = new SqlConnection(connectionString);
-            //    var evolve = new Evolve.Evolve(con, msg => logger.LogInformation(msg))
-            //    {
-            //        EmbeddedResourceAssemblies = new[] { typeof(PersistenceDbMigrations).Assembly },
-            //        EmbeddedResourceFilters = new[] { filter },
-            //        IsEraseDisabled = true
-            //    };
-
-            //    evolve.Migrate();
-            //}
-            //catch (Exception ex)
-            //{
-            //    logger.LogCritical("Database migration failed.", ex);
-            //    throw;
-            //}
+            logger.LogInformation("Addig product");
+            using (var session = FluentNHibernateHelper.OpenSession(connectionString))
+            {
+                //var product = new Product { Name = "Lenovo Laptop", Description = "Sample product" };
+                //session.SaveOrUpdate(product);
+            }
         }
     }
 }
