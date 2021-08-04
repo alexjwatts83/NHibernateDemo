@@ -23,11 +23,17 @@ namespace NHibernateDemo.Infrastructure
 
         public static void UpdateDatabase(string connectionString, ILogger logger)
         {
-            logger.LogInformation("Addig product");
+            logger.LogInformation("Adding product");
             using (var session = FluentNHibernateHelper.OpenSession(connectionString))
             {
                 var product = new Product { Name = "Lenovo Laptop", Description = "Sample product" };
                 session.SaveOrUpdate(product);
+            }
+
+            using (var session = FluentNHibernateHelper.OpenSession2(connectionString))
+            {
+                var products = session.Query<Product>().ToList();
+                logger.LogInformation($"products count: {products.Count}");
             }
         }
     }
