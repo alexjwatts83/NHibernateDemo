@@ -17,8 +17,8 @@ namespace NHibernateDemo.Infrastructure
                 .Mappings(m =>
                           m.FluentMappings
                               .AddFromAssemblyOf<Product>())
-                .ExposeConfiguration(cfg => new SchemaExport(cfg)
-                .Create(false, false))
+                //.ExposeConfiguration(cfg => new SchemaExport(cfg).Create(false, false))
+                .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
                 .BuildSessionFactory();
             return sessionFactory.OpenSession();
         }

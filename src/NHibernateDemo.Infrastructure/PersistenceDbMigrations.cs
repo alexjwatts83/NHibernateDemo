@@ -2,6 +2,7 @@
 using System.Linq;
 using Dapper;
 using Microsoft.Extensions.Logging;
+using NHibernateDemo.Infrastructure.Entities;
 
 namespace NHibernateDemo.Infrastructure
 {
@@ -25,8 +26,8 @@ namespace NHibernateDemo.Infrastructure
             logger.LogInformation("Addig product");
             using (var session = FluentNHibernateHelper.OpenSession(connectionString))
             {
-                //var product = new Product { Name = "Lenovo Laptop", Description = "Sample product" };
-                //session.SaveOrUpdate(product);
+                var product = new Product { Name = "Lenovo Laptop", Description = "Sample product" };
+                session.SaveOrUpdate(product);
             }
         }
     }
