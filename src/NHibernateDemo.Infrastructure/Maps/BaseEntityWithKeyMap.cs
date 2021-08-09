@@ -7,7 +7,14 @@ namespace NHibernateDemo.Infrastructure.Maps
     {
         public BaseEntityWithKeyMap()
         {
-            Id(x => x.Id);
+            if(typeof(TKey) == typeof(string)) {
+                Id(x => x.Id).Length(3);
+            }
+            else
+            {
+                Id(x => x.Id);
+            }
+            
             Map(x => x.Created);
             Map(x => x.Updated);
         }
