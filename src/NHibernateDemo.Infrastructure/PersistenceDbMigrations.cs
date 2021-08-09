@@ -38,9 +38,11 @@ namespace NHibernateDemo.Infrastructure
                         entity = new Student
                         {
                             LastName = "Smith",
-                            FirstMidName = "John"
+                            FirstMidName = "John",
+                            Created = System.DateTime.Now
                         };
                     }
+                    entity.Updated = System.DateTime.Now;
                     session.SaveOrUpdate(entity);
                     transaction.Commit();
                 }
