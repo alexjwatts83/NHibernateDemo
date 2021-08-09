@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NHibernateDemo.Infrastructure.Entities
+﻿namespace NHibernateDemo.Infrastructure.Entities
 {
     public class Student : BaseEntity
     {
